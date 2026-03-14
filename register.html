@@ -1,1 +1,151 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - OneWall</title>
+
+<style>
+
+body{
+font-family:Arial, sans-serif;
+background:#f4f4f4;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.container{
+background:white;
+padding:40px;
+width:350px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+color:#0a8f1c;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0a8f1c;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#087417;
+}
+
+.login-link{
+text-align:center;
+margin-top:10px;
+}
+
+.login-link a{
+color:#0a8f1c;
+text-decoration:none;
+}
+
+.error{
+color:red;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Create Account</h2>
+
+<form id="registerForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<input type="password" id="password" placeholder="Password" required>
+
+<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+<div class="error" id="errorMsg"></div>
+
+<button type="submit">Register</button>
+
+</form>
+
+<div class="login-link">
+Already have account? <a href="login.html">Login</a>
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("registerForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+let confirm=document.getElementById("confirmPassword").value;
+
+let error=document.getElementById("errorMsg");
+
+if(password!==confirm){
+error.textContent="Passwords do not match";
+return;
+}
+
+let users=JSON.parse(localStorage.getItem("users")) || [];
+
+let userExists=users.find(user=>user.email===email);
+
+if(userExists){
+error.textContent="Email already registered";
+return;
+}
+
+let newUser={
+name:name,
+email:email,
+password:password,
+balance:0
+};
+
+users.push(newUser);
+
+localStorage.setItem("users",JSON.stringify(users));
+
+alert("Registration successful!");
+
+window.location="login.html";
+
+});
+
+</script>
+
+</body>
+</html>
