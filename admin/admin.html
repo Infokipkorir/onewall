@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
 
+<title>Admin Panel</title>
+
+<link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+<script>
+
+const pin = prompt("Enter Admin PIN");
+
+if(pin !== "1990"){
+alert("Access denied");
+window.location="../index.html";
+}
+
+</script>
+
+<div class="content">
+
+<h1>Admin Dashboard</h1>
+
+<a href="post-task.html">Post New Task</a>
+
+<h3>System Stats</h3>
+
+<ul>
+
+<li>Total Users: 120</li>
+<li>Active Tasks: 8</li>
+<li>Payments Sent: $320</li>
+
+</ul>
+
+</div>
+
+<script src="../js/admin.js"></script>
+
+</body>
+</html>
