@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OneWall - Admin</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<script>
+  // Simple PIN gate for static demo (PIN: 1990)
+  const pin = prompt("Enter Admin PIN:");
+  if (pin !== "1990") {
+    alert("Access denied");
+    window.location.href = "index.html";
+  }
+</script>
+
+<div class="container">
+  <h1>Admin Dashboard</h1>
+  <p>This is a demo admin page. In a real system, admin can post tasks, approve submissions, and send notifications.</p>
+
+  <!-- Example admin section -->
+  <h2>Create new task</h2>
+  <p>Below is a placeholder form. It doesn't save data in static demo.</p>
+  <form onsubmit="alert('This is a demo. Add backend to save tasks.'); return false;">
+    <label>Title:<br><input type="text" style="width:100%;padding:8px;"></label><br><br>
+    <label>Description:<br><textarea style="width:100%;padding:8px;" rows="3"></textarea></label><br><br>
+    <label>Rate:<br><input type="text" style="width:100%;padding:8px;" placeholder="$0.130"></label><br><br>
+    <button type="submit" class="viewbtn">Post Task</button>
+  </form>
+
+  <div class="footer">
+    &copy; 2026 OneWall. Demo only.
+  </div>
+</div>
+
+</body>
+</html>
