@@ -3,120 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OneWall - Micro Tasks</title>
+<title>OneWall - Tasks</title>
 <style>
-  /* Reset and basic styles */
-  * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-  html, body { height:100%; overflow:hidden; }
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f6f9;
+  display:flex;
+}
 
-  /* Container */
-  .container {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    height:100%;
-    padding:20px;
-    color:#fff;
-    text-shadow: 1px 1px 5px #000;
-    transition: background 1s ease;
-  }
+/* Sidebar */
+.sidebar{
+  width:220px;
+  height:100vh;
+  background:#1f2937;
+  color:white;
+  position:fixed;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
 
-  h1 {
-    font-size:3em;
-    margin-bottom:10px;
-    animation: neonColor 3s infinite alternate;
-  }
+.sidebar h2{
+  margin-bottom:30px;
+}
 
-  h2 { font-size:2em; margin:20px 0 10px; animation: neonColor 3s infinite alternate-reverse; }
+.sidebar a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin:10px 0;
+  padding:10px;
+  border-radius:6px;
+  transition: 0.3s;
+}
 
-  p { font-size:1.2em; margin:10px 0; max-width:600px; }
+.sidebar a:hover{
+  background:#3b82f6;
+}
 
-  .btn-main {
-    display:inline-block;
-    padding:15px 30px;
-    font-size:1.2em;
-    margin-top:20px;
-    background:linear-gradient(90deg, #ff5f6d, #ffc371);
-    color:#fff;
-    text-decoration:none;
-    border-radius:10px;
-    box-shadow: 0 0 20px #ff5f6d, 0 0 40px #ffc371;
-    animation: neonBtn 2s infinite alternate;
-    transition: transform 0.3s;
-  }
-  .btn-main:hover { transform: scale(1.1); }
+/* Main content */
+.main{
+  margin-left:240px;
+  padding:20px;
+  flex:1;
+}
 
-  .footer {
-    position:absolute;
-    bottom:10px;
-    font-size:0.9em;
-    text-shadow: none;
-  }
+h1{
+  color:#111827;
+}
 
-  /* Neon color animation */
-  @keyframes neonColor {
-    0% { color: #ff6ec7; }
-    25% { color: #00ffff; }
-    50% { color: #ffff00; }
-    75% { color: #ff00ff; }
-    100% { color: #ff6ec7; }
-  }
+.task-feed{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:20px;
+}
 
-  @keyframes neonBtn {
-    0% { box-shadow: 0 0 10px #ff5f6d, 0 0 20px #ffc371; }
-    50% { box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
-    100% { box-shadow: 0 0 10px #ff5f6d, 0 0 20px #ffc371; }
-  }
+.task-card{
+  background:white;
+  border-left:5px solid #3b82f6;
+  padding:15px;
+  border-radius:8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.task-card:hover{
+  transform: translateY(-3px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.task-card h3{
+  margin:0 0 10px 0;
+  color:#1d4ed8;
+}
+
+.task-card p{
+  margin:5px 0;
+  color:#374151;
+}
+
+.task-card small{
+  color:#6b7280;
+}
 </style>
 </head>
 <body>
 
-<div class="container" id="landing">
-  <h1>Welcome to OneWall</h1>
-  <p>Complete small online tasks, earn rewards, and get paid.</p>
-  <a href="tasks.html" class="btn-main">Start Tasks</a>
+<div class="sidebar">
+  <h2>OneWall</h2>
+  <a href="index.html">Home</a>
+  <a href="tasks.html">Tasks</a>
+  <a href="profile.html">Profile</a>
+  <a href="logout.html">Logout</a>
+</div>
 
-  <hr>
-
-  <h2>How it works</h2>
-  <p>Browse tasks on the wall, follow instructions, submit proof, and earn credits. Admin approves payments and sends funds.</p>
-  <p>This is a static demo of the UI. For a full system with user accounts, balances, and payments, backend integration is required.</p>
-
-  <div class="footer">&copy; 2026 OneWall.</div>
+<div class="main">
+  <h1>Available Tasks</h1>
+  <div class="task-feed" id="taskFeed">
+    <!-- Tasks will be dynamically inserted here -->
+  </div>
 </div>
 
 <script>
-  // ===== Random background images =====
-  const backgrounds = [
-    'https://source.unsplash.com/1600x900/?technology',
-    'https://source.unsplash.com/1600x900/?abstract,colors',
-    'https://source.unsplash.com/1600x900/?neon',
-    'https://source.unsplash.com/1600x900/?digital',
-    'https://source.unsplash.com/1600x900/?pattern'
+  // ===== Simulated real-time admin task feed =====
+  // Replace this array with backend API fetch in real deployment
+  const tasks = [
+    {
+      title: "Follow our Facebook Page",
+      description: "Follow our official Facebook page and submit a screenshot.",
+      reward: "10 credits",
+      deadline: "2 days left"
+    },
+    {
+      title: "Subscribe to YouTube Channel",
+      description: "Subscribe to OneWall YouTube channel and submit proof.",
+      reward: "15 credits",
+      deadline: "3 days left"
+    },
+    {
+      title: "Share Instagram Post",
+      description: "Share our latest Instagram post and submit screenshot.",
+      reward: "8 credits",
+      deadline: "1 day left"
+    },
+    {
+      title: "LinkedIn Follow",
+      description: "Follow OneWall LinkedIn page for professional updates.",
+      reward: "12 credits",
+      deadline: "4 days left"
+    }
   ];
-  const container = document.getElementById('landing');
 
-  function changeBackground() {
-    const index = Math.floor(Math.random() * backgrounds.length);
-    container.style.backgroundImage = `url(${backgrounds[index]})`;
-    container.style.backgroundSize = 'cover';
-    container.style.backgroundPosition = 'center';
+  const taskFeed = document.getElementById('taskFeed');
+
+  function displayTasks(){
+    taskFeed.innerHTML = ""; // clear first
+    tasks.forEach(task => {
+      const div = document.createElement('div');
+      div.className = 'task-card';
+      div.innerHTML = `
+        <h3>${task.title}</h3>
+        <p>${task.description}</p>
+        <small>Reward: ${task.reward} | Deadline: ${task.deadline}</small>
+      `;
+      taskFeed.appendChild(div);
+    });
   }
 
-  changeBackground();
-  setInterval(changeBackground, 8000); // change every 8 seconds
+  displayTasks();
 
-  // ===== Redirect if user not logged in =====
-  // Simulated check. Replace with real login check
-  const userLoggedIn = false; // change to true if user is logged in
-
-  if (!userLoggedIn) {
-    setTimeout(() => {
-      window.location.href = 'login.html'; // redirect to login page
-    }, 2000); // 2 sec delay to show landing
-  }
+  // ===== Optional: simulate admin posting new tasks every 10 sec =====
+  setInterval(() => {
+    const newTask = {
+      title: "New Task #" + Math.floor(Math.random()*100),
+      description: "Complete this new task and submit proof.",
+      reward: (5 + Math.floor(Math.random()*15)) + " credits",
+      deadline: (1 + Math.floor(Math.random()*5)) + " days left"
+    };
+    tasks.unshift(newTask); // add to top
+    displayTasks();
+  }, 10000);
 </script>
 
 </body>
