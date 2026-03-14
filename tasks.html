@@ -4,354 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OneWall - Tasks</title>
-
 <style>
-
 body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#f4f6f9;
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f6f9;
+  display:flex;
 }
 
 /* Sidebar */
-
 .sidebar{
-width:220px;
-height:100vh;
-background:#1f2937;
-color:white;
-position:fixed;
-padding:20px;
+  width:220px;
+  height:100vh;
+  background:#1f2937;
+  color:white;
+  position:fixed;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
 }
 
 .sidebar h2{
-margin-bottom:30px;
+  margin-bottom:30px;
 }
 
 .sidebar a{
-display:block;
-color:white;
-text-decoration:none;
-margin:10px 0;
-padding:10px;
-border-radius:6px;
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin:10px 0;
+  padding:10px;
+  border-radius:6px;
+  transition: 0.3s;
 }
 
 .sidebar a:hover{
-background:#374151;
+  background:#3b82f6;
 }
 
-.active{
-background:#2563eb;
+/* Main content */
+.main{
+  margin-left:240px;
+  padding:20px;
+  flex:1;
 }
 
-/* Main Content */
-
-.content{
-margin-left:240px;
-padding:30px;
+h1{
+  color:#111827;
 }
 
-.tasks{
-margin-top:20px;
+.task-feed{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:20px;
 }
 
-/* Task Card */
-
-.task{
-display:flex;
-justify-content:space-between;
-background:white;
-padding:20px;
-margin-bottom:15px;
-border-radius:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+.task-card{
+  background:white;
+  border-left:5px solid #3b82f6;
+  padding:15px;
+  border-radius:8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.title{
-font-weight:bold;
-font-size:18px;
+.task-card:hover{
+  transform: translateY(-3px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-.desc{
-color:#666;
-margin:5px 0;
+.task-card h3{
+  margin:0 0 10px 0;
+  color:#1d4ed8;
 }
 
-.info{
-font-size:13px;
-color:#444;
+.task-card p{
+  margin:5px 0;
+  color:#374151;
 }
 
-.gap{
-margin-left:10px;
+.task-card small{
+  color:#6b7280;
 }
-
-.manual{
-color:#2563eb;
-}
-
-.hide{
-color:#888;
-text-decoration:none;
-cursor:pointer;
-}
-
-.right{
-text-align:center;
-}
-
-.price{
-font-size:20px;
-font-weight:bold;
-color:#16a34a;
-}
-
-.taskimg{
-width:70px;
-margin:10px 0;
-border-radius:6px;
-}
-
-.viewbtn{
-background:#2563eb;
-border:none;
-color:white;
-padding:8px 16px;
-border-radius:6px;
-cursor:pointer;
-}
-
-.viewbtn:hover{
-background:#1d4ed8;
-}
-
-.instructions{
-display:block;
-margin-top:5px;
-font-size:13px;
-text-decoration:none;
-color:#2563eb;
-}
-
-.clicked{
-color:#16a34a;
-font-size:13px;
-margin-bottom:5px;
-}
-
 </style>
 </head>
-
 <body>
 
 <div class="sidebar">
-
-<h2>OneWall</h2>
-
-<a href="#">Dashboard</a>
-<a class="active" href="#">Tasks</a>
-
+  <h2>OneWall</h2>
+  <a href="index.html">Home</a>
+  <a href="tasks.html">Tasks</a>
+  <a href="profile.html">Profile</a>
+  <a href="logout.html">Logout</a>
 </div>
 
-<div class="content">
-
-<h1>Available Tasks</h1>
-
-<div class="tasks">
-
-<!-- Task 1 -->
-
-<div class="task">
-
-<div class="left">
-
-<div class="title">Follow Facebook Page</div>
-
-<div class="desc">Follow the Facebook page and send screenshot proof</div>
-
-<div class="info">
-
-<b>Takes:</b> 2 mins
-<b class="gap">Credits in:</b> 1 day<br>
-
-<b>Completion:</b> 30%<br>
-
-<b>Frequency:</b> Once<br><br>
-
-<span class="manual">Manual Credit</span> |
-<a class="hide">Hide</a>
-
-</div>
-
-</div>
-
-<div class="right">
-
-<div class="price">$0.130</div>
-
-<img class="taskimg" src="https://picsum.photos/121?random=2">
-
-<br>
-
-<button class="viewbtn">View</button>
-
-<a class="instructions" href="#">Instructions</a>
-
-</div>
-
-</div>
-
-
-<!-- Task 2 -->
-
-<div class="task">
-
-<div class="left">
-
-<div class="title">Subscribe YouTube Channel</div>
-
-<div class="desc">Subscribe and upload screenshot proof</div>
-
-<div class="info">
-
-<b>Takes:</b> 3 mins
-<b class="gap">Credits in:</b> 1 day<br>
-
-<b>Completion:</b> 72%<br>
-
-<b>Frequency:</b> Once<br><br>
-
-<span class="manual">Manual Credit</span> |
-<a class="hide">Hide</a>
-
-</div>
-
-</div>
-
-<div class="right">
-
-<div class="price">$0.090</div>
-
-<img class="taskimg" src="https://picsum.photos/120?random=1">
-
-<br>
-
-<button class="viewbtn">View</button>
-
-<a class="instructions" href="#">Instructions</a>
-
-</div>
-
-</div>
-
-
-<!-- Task 3 -->
-
-<div class="task">
-
-<div class="left">
-
-<div class="title">Create a New Gmail</div>
-
-<div class="desc">Confirm Email and provide email address</div>
-
-<div class="info">
-
-<b>Takes:</b> 7 mins
-<b class="gap">Credits in:</b> 2 days<br>
-
-<b>Completion:</b> 56%<br>
-
-<b>Frequency:</b> Once off<br><br>
-
-<span class="manual">Manual Credit</span> |
-<a class="hide">Hide</a>
-
-</div>
-
-</div>
-
-<div class="right">
-
-<div class="price">$0.047</div>
-
-<img class="taskimg" src="https://picsum.photos/122?random=3">
-
-<div class="clicked">Clicked</div>
-
-<button class="viewbtn">View</button>
-
-<a class="instructions" href="#">Instructions</a>
-
-</div>
-
-</div>
-
-</div>
-
+<div class="main">
+  <h1>Available Tasks</h1>
+  <div class="task-feed" id="taskFeed">
+    <!-- Tasks will be dynamically inserted here -->
+  </div>
 </div>
 
 <script>
+  // ===== Simulated real-time admin task feed =====
+  // Replace this array with backend API fetch in real deployment
+  const tasks = [
+    {
+      title: "Follow our Facebook Page",
+      description: "Follow our official Facebook page and submit a screenshot.",
+      reward: "10 credits",
+      deadline: "2 days left"
+    },
+    {
+      title: "Subscribe to YouTube Channel",
+      description: "Subscribe to OneWall YouTube channel and submit proof.",
+      reward: "15 credits",
+      deadline: "3 days left"
+    },
+    {
+      title: "Share Instagram Post",
+      description: "Share our latest Instagram post and submit screenshot.",
+      reward: "8 credits",
+      deadline: "1 day left"
+    },
+    {
+      title: "LinkedIn Follow",
+      description: "Follow OneWall LinkedIn page for professional updates.",
+      reward: "12 credits",
+      deadline: "4 days left"
+    }
+  ];
 
-/* View button */
+  const taskFeed = document.getElementById('taskFeed');
 
-document.querySelectorAll(".viewbtn").forEach(button => {
+  function displayTasks(){
+    taskFeed.innerHTML = ""; // clear first
+    tasks.forEach(task => {
+      const div = document.createElement('div');
+      div.className = 'task-card';
+      div.innerHTML = `
+        <h3>${task.title}</h3>
+        <p>${task.description}</p>
+        <small>Reward: ${task.reward} | Deadline: ${task.deadline}</small>
+      `;
+      taskFeed.appendChild(div);
+    });
+  }
 
-button.addEventListener("click", function(){
+  displayTasks();
 
-alert("Open task details or instructions on real site");
-
-});
-
-});
-
-/* Hide task */
-
-document.querySelectorAll(".hide").forEach(link => {
-
-link.addEventListener("click", function(){
-
-this.closest(".task").style.display="none";
-
-});
-
-});
-
+  // ===== Optional: simulate admin posting new tasks every 10 sec =====
+  setInterval(() => {
+    const newTask = {
+      title: "New Task #" + Math.floor(Math.random()*100),
+      description: "Complete this new task and submit proof.",
+      reward: (5 + Math.floor(Math.random()*15)) + " credits",
+      deadline: (1 + Math.floor(Math.random()*5)) + " days left"
+    };
+    tasks.unshift(newTask); // add to top
+    displayTasks();
+  }, 10000);
 </script>
 
 </body>
 </html>
-```
-    </div>
-  </div>
-
-  <!-- Task 3 -->
-  <div class="task">
-    <div class="left">
-      <div class="title">Create a New Gmail</div>
-      <div class="desc">Confirm Email, Provide Email Address</div>
-      <div class="info">
-        <b>Takes:</b> 7 mins
-        <b style="margin-left:15px">Credits in:</b> 2 days<br>
-        <b>Completion:</b> 56%<br>
-        <b>Frequency:</b> Once off<br><br>
-        <span class="manual">Manual Credit</span>
-        |
-        <a class="hide" href="#">Hide</a>
-      </div>
-    </div>
-    <div class="right">
-      <div class="price">$0.047</div>
-      <img class="taskimg" src="https://picsum.photos/122?random=3" alt="Task">
-      <br>
-      <div class="clicked">Clicked</div>
-      <button class="viewbtn" onclick="alert('Open task details or instructions on real site')">View</button>
-      <a class="instructions" href="#">Instructions</a>
-    </div>
-  </div>
-
-</div>
-
-</body>
-  </html>
