@@ -1,59 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OneWall - Tasks</title>
-<link rel="stylesheet" href="styles.css">
+
+<title>Tasks</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
 </head>
+
 <body>
 
-<div class="container">
-  <div class="header">
-    <div>Task Details</div>
-    <div>Rate</div>
-  </div>
+<div class="sidebar">
 
-  <!-- Task 1 -->
-  <div class="task">
-    <div class="left">
-      <div class="title">Open & Read Website Pages</div>
-      <div class="desc">Click on a button, Search for something</div>
-      <div class="info">
-        <b>Takes:</b> 7 mins
-        <b style="margin-left:15px">Credits in:</b> 4 hours<br>
-        <b>Completion:</b> 95%<br>
-        <b>Frequency:</b> Once off<br><br>
-        <span class="manual">Manual Credit</span>
-        |
-        <a class="hide" href="#">Hide</a>
-      </div>
-    </div>
-    <div class="right">
-      <div class="price">$0.130</div>
-      <img class="taskimg" src="https://picsum.photos/120?random=1" alt="Task">
-      <button class="viewbtn" onclick="alert('Open task details or instructions on real site')">View</button>
-      <a class="instructions" href="#">Instructions</a>
-    </div>
-  </div>
+<h2>OneWall</h2>
 
-  <!-- Task 2 -->
-  <div class="task">
-    <div class="left">
-      <div class="title">Click Button & Visit Website</div>
-      <div class="desc">Click on a button</div>
-      <div class="info">
-        <b>Takes:</b> 8 mins
-        <b style="margin-left:15px">Credits in:</b> 1 day<br>
-        <b>Completion:</b> 99%<br>
-        <b>Frequency:</b> Once off<br><br>
-        <span class="manual">Manual Credit</span>
-        |
-        <a class="hide" href="#">Hide</a>
-      </div>
-    </div>
-    <div class="right">
-      <div class="price">$0.130</div>
+<a href="dashboard.html">Dashboard</a>
+<a href="tasks.html">Tasks</a>
+
+</div>
+
+<div class="content">
+
+<h1>Available Tasks</h1>
+
+<div id="taskList"></div>
+
+</div>
+
+<script src="js/tasks.js"></script>
+
+</body>
+</html>      <div class="price">$0.130</div>
       <img class="taskimg" src="https://picsum.photos/121?random=2" alt="Task">
       <button class="viewbtn" onclick="alert('Open task details or instructions on real site')">View</button>
       <a class="instructions" href="#">Instructions</a>
