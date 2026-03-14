@@ -3,33 +3,204 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>OneWall - Micro Tasks</title>
-<link rel="stylesheet" href="styles.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Background */
+
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background-image:url("https://images.unsplash.com/photo-1551288049-bebda4e38f71");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* Dark overlay */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
+
+/* Container */
+
+.container{
+max-width:900px;
+padding:40px;
+text-align:center;
+color:white;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+animation:fadeIn 1.5s;
+}
+
+/* Hero */
+
+.landing-hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.landing-hero p{
+font-size:18px;
+margin-bottom:25px;
+color:#ddd;
+}
+
+/* Button */
+
+.btn-main{
+display:inline-block;
+padding:14px 30px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-size:18px;
+transition:0.3s;
+}
+
+.btn-main:hover{
+background:#1d4ed8;
+transform:scale(1.05);
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Divider */
+
+hr{
+margin:30px 0;
+border:none;
+border-top:1px solid rgba(255,255,255,0.3);
+}
+
+/* How it works */
+
+h2{
+margin-bottom:10px;
+}
+
+p{
+margin-bottom:10px;
+color:#eee;
+}
+
+/* Footer */
+
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#bbb;
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Responsive */
+
+@media(max-width:700px){
+
+.landing-hero h1{
+font-size:34px;
+}
+
+.container{
+margin:20px;
+padding:25px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="container">
-  <div class="landing-hero">
-    <h1>Welcome to OneWall</h1>
-    <p>Complete small online tasks, earn rewards, and get paid.</p>
-    <!-- Link to user task wall -->
-    <a href="tasks.html" class="btn-main">Start Tasks</a>
-  </div>
 
-  <hr>
+<div class="landing-hero">
 
-  <h2>How it works</h2>
-  <p>
-    Browse tasks on the wall, follow instructions, submit proof, and earn credits. Admin approves payments and sends funds.
-  </p>
-  <p>
-    This is a static demo of the UI. For a full system with user accounts, balances, and payments, backend integration is required.
-  </p>
+<h1>Welcome to OneWall</h1>
 
-  <div class="footer">
-    &copy; 2026 OneWall. Demo only.
-  </div>
+<p>Complete small online tasks, earn rewards, and get paid.</p>
+
+<a href="tasks.html" class="btn-main">Start Tasks</a>
+
 </div>
+
+<hr>
+
+<h2>How it works</h2>
+
+<p>
+Browse tasks on the wall, follow instructions, submit proof, and earn credits.
+</p>
+
+<p>
+Admin reviews submissions and approves payments to users.
+</p>
+
+<p>
+This demo shows the interface of a micro-task platform like TimeBucks or SproutGigs.
+</p>
+
+<div class="footer">
+© 2026 OneWall. Demo only.
+</div>
+
+</div>
+
+<script>
+
+/* Simple welcome animation */
+
+window.addEventListener("load",function(){
+
+document.querySelector(".container").style.opacity="1";
+
+});
+
+/* Button click effect */
+
+document.querySelector(".btn-main").addEventListener("click",function(){
+
+this.innerText="Loading Tasks...";
+
+});
+
+</script>
 
 </body>
 </html>
+```
